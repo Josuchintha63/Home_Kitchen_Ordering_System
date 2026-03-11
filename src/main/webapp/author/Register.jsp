@@ -10,56 +10,88 @@ pageEncoding="UTF-8"%>
 <style>
 
 body{
-    font-family: Arial, sans-serif;
-
-    background-image: url("../images/food-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+font-family: Arial;
+background:#f5f5f5;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
+/* Main container */
+
+.main{
+display:flex;
+align-items:center;
+gap:40px;
+}
+
+/* Chef image */
+
+.chef img{
+width:250px;
+}
+
+/* Form container */
+
 .container{
-    background: rgba(255,255,255,0.9);
-    padding:30px;
-    width:350px;
-    border-radius:10px;
-    box-shadow:0 0 15px black;
+width:320px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 h2{
-    text-align:center;
+text-align:center;
+color:#ff5e3a;
+margin-bottom:20px;
 }
+
+/* Inputs */
 
 input,select{
-    width:100%;
-    padding:8px;
-    margin-top:5px;
-    margin-bottom:15px;
-    border:1px solid #ccc;
-    border-radius:5px;
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ddd;
+font-size:14px;
 }
 
-input[type="submit"]{
-    background:#ff5e62;
-    color:white;
-    border:none;
-    cursor:pointer;
-    font-size:16px;
+input:focus{
+border-color:#ff5e3a;
+outline:none;
 }
 
-input[type="submit"]:hover{
-    background:#ff3b3f;
+/* Button */
+
+button{
+width:100%;
+padding:12px;
+background:#ff5e3a;
+border:none;
+color:white;
+font-size:16px;
+border-radius:25px;
+cursor:pointer;
+margin-top:10px;
 }
+
+button:hover{
+background:#ff3b1f;
+}
+
+/* link */
 
 a{
-    text-decoration:none;
-    color:#ff5e62;
-    font-weight:bold;
+text-decoration:none;
+color:#ff5e3a;
+font-size:14px;
+}
+
+p{
+text-align:center;
 }
 
 </style>
@@ -68,41 +100,44 @@ a{
 
 <body>
 
+<div class="main">
+
+<!-- Chef Image -->
+<div class="chef">
+<img src="images/chef.png">
+</div>
+
+<!-- Registration Form -->
+
 <div class="container">
 
-<h2>User Registration</h2>
+<h2>Register</h2>
 
 <form action="/author/Register" method="post">
 
-<label>User ID</label>
-<input type="text" name="uid">
+<input type="text" name="uid" placeholder="User ID">
 
-<label>User Name</label>
-<input type="text" name="uname">
+<input type="text" name="uname" placeholder="Full Name">
 
-<label>Email</label>
-<input type="text" name="email">
+<input type="text" name="email" placeholder="Email Address">
 
-<label>Password</label>
-<input type="password" name="pass">
+<input type="password" name="pass" placeholder="Password">
 
-<label>Role</label>
 <select name="role">
 <option value="CUSTOMER">Customer</option>
 <option value="CHEF">Chef</option>
 <option value="ADMIN">Admin</option>
 </select>
 
-<label>Phone</label>
-<input type="text" name="phone">
+<input type="text" name="phone" placeholder="Phone Number">
 
-<input type="submit" value="Register">
+<button type="submit">Registration</button>
 
 </form>
 
-<br>
+<p>Already have an account? <a href="Login.jsp">Login</a></p>
 
-<a href="Login.jsp">Already have an account? Login</a>
+</div>
 
 </div>
 
