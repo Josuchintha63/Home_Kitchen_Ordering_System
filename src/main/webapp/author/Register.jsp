@@ -113,7 +113,7 @@ color:white;
 
 <h2>Register</h2>
 
-<form action="/author/Register" method="post">
+<form action="Register" method="post">
 
 <input type="text" name="uid" placeholder="User ID">
 
