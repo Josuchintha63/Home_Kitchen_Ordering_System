@@ -23,7 +23,7 @@ align-items:left;
 .main{
 display:flex;
 align-items:center;
-gap:40px;
+gap:20px;
 }
 
 
