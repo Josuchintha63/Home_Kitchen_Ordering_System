@@ -150,7 +150,7 @@ width:300px;
 <!-- chef illustration -->
 
 <div class="chef">
-<img src=".,/images/chef.png">
+<img src="../images/chef.png">
 </div>
 
 </div>
