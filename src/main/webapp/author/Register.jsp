@@ -11,10 +11,10 @@ pageEncoding="UTF-8"%>
 
 body{
 font-family: Arial;
-background:#f5f5f5;
+background:black;
 height:100vh;
 display:flex;
-justify-content:center;
+justify-content:left;
 align-items:center;
 }
 
@@ -91,6 +91,7 @@ font-size:14px;
 
 p{
 text-align:center;
+color:white;
 }
 
 </style>
