@@ -23,7 +23,7 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#f3f3f3;
+background:#f5f5f5;
 }
 
 /* main layout */
@@ -31,14 +31,14 @@ background:#f3f3f3;
 .main{
 display:flex;
 align-items:center;
-gap:80px;
+gap:90px;
 }
 
 /* chef section */
 
 .chef{
 position:relative;
-width:400px;
+width:420px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -49,8 +49,8 @@ align-items:center;
 .chef::before{
 content:"";
 position:absolute;
-width:300px;
-height:300px;
+width:330px;
+height:330px;
 background:#ffcc99;
 border-radius:50%;
 z-index:-1;
@@ -59,7 +59,7 @@ z-index:-1;
 /* chef image */
 
 .chef img{
-width:300px;
+width:330px;
 }
 
 /* login card */
@@ -91,7 +91,7 @@ border:1px solid #ddd;
 font-size:14px;
 }
 
-/* login button */
+/* button */
 
 button{
 width:100%;
