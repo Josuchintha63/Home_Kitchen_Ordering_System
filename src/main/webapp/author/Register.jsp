@@ -11,11 +11,11 @@ pageEncoding="UTF-8"%>
 
 body{
 font-family: Arial;
-background:black;
+background:#f5f5f5;
 height:100vh;
 display:flex;
-justify-content:left;
-align-items:center;
+justify-content:center;
+align-items:left;
 }
 
 
