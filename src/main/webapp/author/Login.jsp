@@ -133,7 +133,7 @@ font-weight:bold;
 <!-- chef image -->
 
 <div class="chef">
-<img src="./images/chefLogin.png">
+<img src="../images/chefLogin.png">
 </div>
 
 <!-- login form -->
