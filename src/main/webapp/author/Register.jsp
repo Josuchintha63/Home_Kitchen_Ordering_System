@@ -29,13 +29,13 @@ gap:40px;
 
 
 .chef img{
-width:1000px;
+width:800px;
 }
 
 
 .container{
-width:320px;
-background:white;
+width:400px;
+background:black;
 padding:30px;
 border-radius:20px;
 box-shadow:0 5px 20px rgba(0,0,0,0.1);
