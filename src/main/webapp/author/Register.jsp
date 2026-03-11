@@ -1,38 +1,95 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>User Registration</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#ff9966,#ff5e62);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    width:350px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+}
+
+input,select{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+input[type="submit"]{
+    background:#ff5e62;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+input[type="submit"]:hover{
+    background:#ff3b3f;
+}
+
+a{
+    text-decoration:none;
+    color:#ff5e62;
+    font-weight:bold;
+}
+
+</style>
+
 </head>
+
 <body>
+
+<div class="container">
 
 <h2>User Registration</h2>
 
-<form action="Register" method="post">
+<form action="/author/Register" method="post">
 
-<label>User ID</label><br>
-<input type="text" name="uid"><br><br>
+<label>User ID</label>
+<input type="text" name="uid">
 
-<label>User Name</label><br>
-<input type="text" name="uname"><br><br>
+<label>User Name</label>
+<input type="text" name="uname">
 
-<label>Email</label><br>
-<input type="text" name="email"><br><br>
+<label>Email</label>
+<input type="text" name="email">
 
-<label>Password</label><br>
-<input type="password" name="pass"><br><br>
+<label>Password</label>
+<input type="password" name="pass">
 
-<label>Role</label><br>
+<label>Role</label>
 <select name="role">
 <option value="CUSTOMER">Customer</option>
 <option value="CHEF">Chef</option>
 <option value="ADMIN">Admin</option>
-</select><br><br>
+</select>
 
-<label>Phone</label><br>
-<input type="text" name="phone"><br><br>
+<label>Phone</label>
+<input type="text" name="phone">
 
 <input type="submit" value="Register">
 
@@ -41,6 +98,8 @@
 <br>
 
 <a href="Login.jsp">Already have an account? Login</a>
+
+</div>
 
 </body>
 </html>
