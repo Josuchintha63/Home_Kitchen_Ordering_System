@@ -18,7 +18,7 @@ justify-content:center;
 align-items:center;
 }
 
-/* Main container */
+
 
 .main{
 display:flex;
@@ -26,13 +26,12 @@ align-items:center;
 gap:40px;
 }
 
-/* Chef image */
+
 
 .chef img{
 width:250px;
 }
 
-/* Form container */
 
 .container{
 width:320px;
@@ -48,7 +47,7 @@ color:#ff5e3a;
 margin-bottom:20px;
 }
 
-/* Inputs */
+
 
 input,select{
 width:100%;
@@ -64,7 +63,7 @@ border-color:#ff5e3a;
 outline:none;
 }
 
-/* Button */
+
 
 button{
 width:100%;
