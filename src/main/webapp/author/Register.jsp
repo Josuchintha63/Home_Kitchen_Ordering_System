@@ -11,7 +11,12 @@ pageEncoding="UTF-8"%>
 
 body{
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right,#ff9966,#ff5e62);
+
+    background-image: url("../images/food-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     height:100vh;
     display:flex;
     justify-content:center;
@@ -19,11 +24,11 @@ body{
 }
 
 .container{
-    background:white;
+    background: rgba(255,255,255,0.9);
     padding:30px;
     width:350px;
     border-radius:10px;
-    box-shadow:0 0 10px gray;
+    box-shadow:0 0 15px black;
 }
 
 h2{
