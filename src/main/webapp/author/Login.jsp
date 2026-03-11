@@ -16,12 +16,14 @@ box-sizing:border-box;
 font-family: Arial, sans-serif;
 }
 
+/* page background */
+
 body{
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(to right,#f3f3f3,#e6e6e6);
+background:#f3f3f3;
 }
 
 /* main layout */
@@ -32,23 +34,45 @@ align-items:center;
 gap:80px;
 }
 
+/* chef section */
+
+.chef{
+position:relative;
+width:400px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* orange circle */
+
+.chef::before{
+content:"";
+position:absolute;
+width:300px;
+height:300px;
+background:#ffcc99;
+border-radius:50%;
+z-index:-1;
+}
+
 /* chef image */
 
 .chef img{
-width:350px;
+width:300px;
 }
 
 /* login card */
 
 .container{
 width:350px;
-background:#f7f7f7;
+background:white;
 padding:35px;
 border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* heading */
+/* title */
 
 h2{
 text-align:center;
@@ -56,21 +80,18 @@ color:#ff5e3a;
 margin-bottom:20px;
 }
 
-/* input boxes */
+/* inputs */
 
-.inputBox{
-margin-bottom:15px;
-}
-
-.inputBox input{
+input{
 width:100%;
 padding:12px;
+margin:10px 0;
 border-radius:10px;
 border:1px solid #ddd;
 font-size:14px;
 }
 
-/* button */
+/* login button */
 
 button{
 width:100%;
@@ -109,13 +130,13 @@ font-weight:bold;
 
 <div class="main">
 
-<!-- Chef Illustration -->
+<!-- chef image -->
 
 <div class="chef">
-<img src="../images/chefLogin.png">
+<img src="./images/chefLogin.png">
 </div>
 
-<!-- Login Form -->
+<!-- login form -->
 
 <div class="container">
 
@@ -123,13 +144,9 @@ font-weight:bold;
 
 <form action="Login" method="post">
 
-<div class="inputBox">
 <input type="text" name="uname" placeholder="Username">
-</div>
 
-<div class="inputBox">
 <input type="password" name="pass" placeholder="Password">
-</div>
 
 <button type="submit">Login</button>
 
