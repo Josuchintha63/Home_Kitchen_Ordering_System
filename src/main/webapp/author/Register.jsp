@@ -29,7 +29,7 @@ gap:40px;
 
 
 .chef img{
-width:250px;
+width:400px;
 }
 
 
