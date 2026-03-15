@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 
@@ -5,94 +6,114 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User Registration</title>
+<title>KitchenKart Register</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+/* PAGE BACKGROUND */
+
 body{
-font-family: Arial;
-background:#f5f5f5;
 height:100vh;
 display:flex;
 justify-content:center;
-align-items:left;
+align-items:center;
+background:linear-gradient(135deg,#ff7a18 40%, #111 40%);
 }
 
-
+/* MAIN CONTAINER */
 
 .main{
 display:flex;
-align-items:center;
-gap:20px;
-}
-
-
-
-.chef img{
-width:450px;
-height:auto;
-}
-
-
-.container{
-width:400px;
-background:black;
-padding:30px;
+width:900px;
+height:520px;
 border-radius:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
+overflow:hidden;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
+
+/* LEFT IMAGE */
+
+.left{
+flex:1;
+background:url("https://images.unsplash.com/photo-1593560708920-61dd98c46a4e") center/cover;
+}
+
+/* RIGHT FORM */
+
+.right{
+flex:1;
+background:#111;
+padding:40px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+border-left:3px solid #ff7a18;
+}
+
+/* TITLE */
 
 h2{
+color:#ff7a18;
 text-align:center;
-color:#ff5e3a;
-margin-bottom:20px;
+margin-bottom:25px;
+font-size:32px;
 }
 
-
+/* INPUTS */
 
 input,select{
 width:100%;
-padding:10px;
-margin:8px 0;
+padding:12px;
+margin:10px 0;
 border-radius:8px;
-border:1px solid #ddd;
+border:1px solid #333;
+background:#1a1a1a;
+color:white;
 font-size:14px;
 }
 
-input:focus{
-border-color:#ff5e3a;
+input:focus,select:focus{
 outline:none;
+border-color:#ff7a18;
 }
 
-
+/* BUTTON */
 
 button{
 width:100%;
 padding:12px;
-background:#ff5e3a;
+background:linear-gradient(45deg,#ff7a18,#ff4b2b);
 border:none;
+border-radius:30px;
 color:white;
 font-size:16px;
-border-radius:25px;
 cursor:pointer;
-margin-top:10px;
+margin-top:15px;
 }
 
 button:hover{
-background:#ff3b1f;
+opacity:0.9;
 }
 
-/* link */
-
-a{
-text-decoration:none;
-color:#ff5e3a;
-font-size:14px;
-}
+/* LOGIN LINK */
 
 p{
+color:#bbb;
 text-align:center;
-color:white;
+margin-top:15px;
+}
+
+a{
+color:#ff7a18;
+text-decoration:none;
+font-weight:bold;
 }
 
 </style>
@@ -103,14 +124,9 @@ color:white;
 
 <div class="main">
 
-<!-- Chef Image -->
-<div class="chef">
-    <img src="../images/chef.png">
-</div>
+<div class="left"></div>
 
-<!-- Registration Form -->
-
-<div class="container">
+<div class="right">
 
 <h2>Register</h2>
 
@@ -120,7 +136,7 @@ color:white;
 
 <input type="text" name="uname" placeholder="Full Name">
 
-<input type="text" name="email" placeholder="Email Address">
+<input type="email" name="email" placeholder="Email Address">
 
 <input type="password" name="pass" placeholder="Password">
 
@@ -132,7 +148,7 @@ color:white;
 
 <input type="text" name="phone" placeholder="Phone Number">
 
-<button type="submit">Registration</button>
+<button type="submit">Register</button>
 
 </form>
 
@@ -144,3 +160,4 @@ color:white;
 
 </body>
 </html>
+

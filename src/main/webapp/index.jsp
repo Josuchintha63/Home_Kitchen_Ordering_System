@@ -68,14 +68,21 @@ nav ul li a:hover{
 color:#ff7a18;
 }
 
+/* LOGIN BUTTON */
+
 .login-btn{
 background:#ff7a18;
-border:none;
 color:white;
 padding:8px 18px;
 border-radius:20px;
-cursor:pointer;
+text-decoration:none;
+font-size:16px;
 }
+
+.login-btn:hover{
+background:#ff8c33;
+}
+
 
 /* HERO */
 
@@ -443,7 +450,7 @@ color:#ff7a18;
 <li><a onclick="scrollToSection('home')">Home</a></li>
 <li><a onclick="scrollToSection('about')">About</a></li>
 <li><a onclick="scrollToSection('contact')">Contact</a></li>
-<li><button class="login-btn">Login</button></li>
+<li><a href="author/Login.jsp" class="login-btn">Login</a></li>
 </ul>
 
 </div>
