@@ -11,16 +11,15 @@ public class Food {
 	private String status;
 
 
-	public Food(int chefId, String fname, String description,double price, String image, String status) {
-
-    this.chef_id = chefId;
-    this.food_name = fname;
-    this.description = description;
-    this.price = price;
-    this.image_url = image;
-    this.status = status;
-}
-
+	public Food(int food_id, int chef_id, String food_name, String description, double price, String image_url, String status) {
+	    this.food_id = food_id;
+	    this.chef_id = chef_id;
+	    this.food_name = food_name;
+	    this.description = description;
+	    this.price = price;
+	    this.image_url = image_url;
+	    this.status = status;
+	}
 
 
 	public Food() {
@@ -84,10 +83,6 @@ public class Food {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-	
-	
-	
+
 
 }
