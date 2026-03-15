@@ -7,17 +7,46 @@
 <head>
 <meta charset="UTF-8">
 <title>My Orders</title>
+
+<style>
+
+body{
+ font-family: Arial;
+ text-align:center;
+}
+
+.dashboard-btn{
+ margin:20px;
+ padding:10px 15px;
+ background:black;
+ color:white;
+ border:none;
+ border-radius:5px;
+ cursor:pointer;
+}
+
+.dashboard-btn:hover{
+ background:gray;
+}
+
+</style>
+
 </head>
 <body>
 
 <h2>🚚 Order History</h2>
 
+<!-- Dashboard Button -->
+<a href="Dashboard.jsp">
+<button class="dashboard-btn">⬅ Back To Dashboard</button>
+</a>
+
 <%
-List<Order> orders =
-(List<Order>)request.getAttribute("orders");
+
+List<Order> orders = (List<Order>)request.getAttribute("orders");
 
 if(orders!=null && !orders.isEmpty()){
-    for(Order o : orders){
+ for(Order o : orders){
 %>
 
 <hr>
@@ -31,7 +60,7 @@ if(orders!=null && !orders.isEmpty()){
 <p>Date : <%= o.getOrder_date() %></p>
 
 <%
-    }
+ }
 }else{
 %>
 

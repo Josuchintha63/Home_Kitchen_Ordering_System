@@ -51,8 +51,8 @@ background-color:#2980b9;
 
   <h2>Add Food Item 🍛</h2>
 
-	<form action="Add-Food" method="post">
-	<input type="hidden" name="chefId" value="1">
+	<form action="Add-food" method="post">
+	<!-- <input type="hidden" name="chefId" value="1"> -->
 	<input type="text" name="foodName" placeholder="Enter food name" required>
 	<input type="text" name="description" placeholder="Enter food description" required>
 	<input type="number" name="price" placeholder="Enter price" required>

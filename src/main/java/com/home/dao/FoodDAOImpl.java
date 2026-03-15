@@ -3,6 +3,7 @@ package com.home.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,9 +74,62 @@ public class FoodDAOImpl implements FoodDao {
         }
 
         return false;
-    
-		
-		
 		
 	}
+	
+	@Override
+	public boolean updateFood(Food food) {
+
+	    con = DBConnection.getConnection();
+
+	    String sql = "UPDATE food_items SET chef_id=?, food_name=?, description=?, price=?, image_url=?, status=? WHERE food_id=?";
+
+	    try {
+
+	        PreparedStatement ps = con.prepareStatement(sql);
+
+	        ps.setInt(1, food.getChef_id());
+	        ps.setString(2, food.getFood_name());
+	        ps.setString(3, food.getDescription());
+	        ps.setDouble(4, food.getPrice());
+	        ps.setString(5, food.getImage_url());
+	        ps.setString(6, food.getStatus());
+	        ps.setInt(7, food.getFood_id()); // ❗ missing before
+
+	        int rows = ps.executeUpdate();
+
+	        return rows > 0;
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return false;
+	}
+	
+	@Override
+	public boolean deletefood(int food_id) {
+
+	    con = DBConnection.getConnection();
+
+	    String sql = "DELETE FROM food_items WHERE food_id=?";
+
+	    try {
+
+	        PreparedStatement ps = con.prepareStatement(sql);
+
+	        ps.setInt(1, food_id);
+
+	        int rows = ps.executeUpdate();
+
+	        return rows > 0;
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return false;
+	}
+
+	
 }

@@ -12,18 +12,25 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/chef/Add-Food")
+@WebServlet("/chef/Add-food")
 public class AddFoodServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+    	HttpSession session = req.getSession();
+    	 if (session == null || session.getAttribute("us") == null) {
+             resp.sendRedirect("/Home_kitchen_System/author/Login.jsp");
+             return;
+         }
 
-        
+    
         Users chef = (Users) req.getSession().getAttribute("us");
-        int chefId = chef.getUser_id();
-
+        int chefId = chef.getUser_id(); 
+       // int chefId = Integer.parseInt(req.getParameter("chefId"));
+        //int foodId =Integer.parseInt(req.getParameter("food_Id"));
         String fname = req.getParameter("foodName");
         String description = req.getParameter("description");
         double price = Double.parseDouble(req.getParameter("price"));
@@ -36,7 +43,7 @@ public class AddFoodServlet extends HttpServlet {
         boolean isAdded = fdao.addFood(food);
 
         if (isAdded) {
-            resp.sendRedirect("ChefDashboardServlet");
+            resp.sendRedirect("Dashboard");
         } else {
             resp.sendRedirect("chef/Add-food.jsp");
         }

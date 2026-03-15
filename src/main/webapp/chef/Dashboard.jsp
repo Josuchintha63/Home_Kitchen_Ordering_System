@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.home.dto.Food" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Chef Dashboard</title>
 
+<title>Chef Dashboard</title>
 <style>
 
 /* Page styling */
@@ -86,11 +88,17 @@ tr:hover {
 
 <div class="btn-container">
 
-    <a href="Add-food.jsp" class="btn">Add Food</a>
+    <!-- <a href="Add-food.jsp" class="btn">Add Food</a>
+     <a href="ChefOrdersServlet" class="btn">View Orders</a>  -->
     
-     <a href="ChefOrdersServlet" class="btn">Chef Orders</a>
-
-    <a href="UpdateFoodServlet" class="btn">Edit Food</a>
+    <a href="<%=request.getContextPath()%>/chef/Add-food.jsp" class="btn">Add Food</a>
+    
+ 
+    <a href="<%=request.getContextPath()%>/chef/ChefOrdersServlet" class="btn">View Orders</a>
+     
+   <!--  <a href="UpdateFoodServlet" class="btn">Edit Food</a>
+    
+    <a href="DeleteFoodServlet" class="btn">Delete</a> -->
 
     <a href="logout.jsp" class="btn">Logout</a>
 
@@ -104,13 +112,62 @@ tr:hover {
 <th>Food Name</th>
 <th>Description</th>
 <th>Price</th>
-<th>Image URL</th>
+<th>Image</th>
 <th>Status</th>
+<th>Edit</th>
+<th>Delete</th>
 </tr>
 
-<!-- Data will come from database -->
+<%
+List<Food> foods = (List<Food>) request.getAttribute("foods");
+
+if(foods != null && !foods.isEmpty()){
+    for(Food f : foods){
+%>
+
+<tr>
+
+<td><%=f.getFood_id()%></td>
+<td><%=f.getChef_id()%></td>
+<td><%=f.getFood_name()%></td>
+<td><%=f.getDescription()%></td>
+<td><%=f.getPrice()%></td>
+
+<td>
+<img src="<%=f.getImage_url()%>" width="60">
+</td>
+
+<td><%=f.getStatus()%></td>
+
+<td>
+
+<a href="<%=request.getContextPath()%>/chef/EditFoodServlet?food_id=<%=f.getFood_id()%>">
+ <button style="color:white;background:#e74c3c;padding:5px 10px;border-radius:4px;text-decoration:none;">Edit</button>
+</a>
+</td>
+
+<td>
+
+<a href="<%=request.getContextPath()%>/chef/DeleteFoodServlet?food_id=<%=f.getFood_id()%>">
+    <button style="color:white;background:#e74c3c;padding:5px 10px;border-radius:4px;text-decoration:none;">Delete</button>
+</a>
+</td>
+
+</tr>
+
+<%
+    }
+}else{
+%>
+
+<tr>
+<td colspan="9">No Food Items Available</td>
+</tr>
+
+<%
+}
+%>
 
 </table>
-
 </body>
 </html>

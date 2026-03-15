@@ -9,6 +9,7 @@ public interface FoodDao {
 	
 	 List<Food> getAllFoods();
 	 boolean addFood(Food food);
-	 
+	 boolean updateFood(Food food);
+	 boolean deletefood(int food_id);
 
 }
