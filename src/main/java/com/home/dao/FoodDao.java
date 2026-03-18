@@ -11,5 +11,6 @@ public interface FoodDao {
 	 boolean addFood(Food food);
 	 boolean updateFood(Food food);
 	 boolean deletefood(int food_id);
+	 Food getFoodById(int id);
 
 }

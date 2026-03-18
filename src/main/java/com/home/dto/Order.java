@@ -13,6 +13,16 @@ public class Order {
     private double total_amount;
     private String status;
     private Timestamp order_date;
+    
+    private Food food;
+
+    public Food getFood() {
+    return food;
+    }
+
+    public void setFood(Food food) {
+    this.food = food;
+    }
 
     public Order() {
     }

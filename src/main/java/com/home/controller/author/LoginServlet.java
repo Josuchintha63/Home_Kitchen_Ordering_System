@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
         if(user != null){
 
             session.setAttribute("us", user);
+
             String role = user.getRole();
 
             if(role.equalsIgnoreCase("CUSTOMER")){
@@ -35,12 +36,12 @@ public class LoginServlet extends HttpServlet {
                 resp.sendRedirect(req.getContextPath()+"/admin/Dashboard.jsp");
             }
             else if(role.equalsIgnoreCase("CHEF")){
-                resp.sendRedirect(req.getContextPath()+"/chef/Dashboard.jsp");
+                resp.sendRedirect(req.getContextPath()+"/chef/ChefDashboardServlet");
             }
 
         } else {
 
-            resp.sendRedirect("Login.jsp");
+            resp.sendRedirect(req.getContextPath()+"/author/Login.jsp");
 
         }
     }

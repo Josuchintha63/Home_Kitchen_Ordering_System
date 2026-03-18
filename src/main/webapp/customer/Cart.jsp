@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ page import="com.home.dto.Users" %>
+<%@ page import="java.util.List"%>
+<%@ page import="com.home.dto.Cart"%>
 
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HomeKitchen Dashboard</title>
+<title>Checkout</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -20,19 +19,33 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
+/* BODY BACKGROUND */
+
 body{
-background:#f4f6f9;
+
+background:
+linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)),
+url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+
+background-size:cover;
+background-position:center;
+
+color:white;
+
 }
 
 /* NAVBAR */
 
 .navbar{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:15px 60px;
+
 background:linear-gradient(45deg,#ff5e00,#ff8c00);
-color:white;
+
 }
 
 .logo{
@@ -40,74 +53,198 @@ font-size:22px;
 font-weight:600;
 }
 
-.nav-links{
-display:flex;
-gap:25px;
-}
-
 .nav-links a{
+
 text-decoration:none;
 color:white;
+margin-left:20px;
+font-size:15px;
+
 }
 
-/* HERO */
+/* MAIN LAYOUT */
 
-.hero{
-padding:120px 80px;
+.checkout-container{
+display:flex;
+gap:30px;
+padding:40px 60px;
+}
+
+/* LEFT SIDE */
+
+.left-section{
+flex:2;
+}
+
+/* RIGHT SIDE */
+
+.right-section{
+
+flex:1;
+
+background:rgba(0,0,0,0.7);
+
+padding:20px;
+
+border-radius:10px;
+
+}
+
+/* ADDRESS BOX */
+
+.address-box{
+
+background:rgba(255,255,255,0.1);
+
+padding:25px;
+
+border-radius:10px;
+
+margin-bottom:20px;
+
+border:1px solid rgba(255,255,255,0.2);
+
+}
+
+.address-grid{
+display:flex;
+gap:20px;
+margin-top:20px;
+}
+
+.address-card{
+
+flex:1;
+
+background:rgba(0,0,0,0.5);
+
+padding:20px;
+
+border-radius:8px;
+
+}
+
+.deliver-btn{
+
+background:#ff5e00;
 color:white;
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url("https://images.unsplash.com/photo-1498837167922-ddd27525d352");
-background-size:cover;
-background-position:center;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+margin-top:10px;
+cursor:pointer;
+
 }
 
-/* GRID */
+.add-address{
 
-.food-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
-padding:50px 80px;
-}
+flex:1;
 
-/* CARD */
+border:1px dashed rgba(255,255,255,0.4);
 
-.food-card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
-transition:0.3s;
-}
+padding:20px;
 
-.food-card:hover{
-transform:translateY(-8px);
-}
+border-radius:8px;
 
-.food-card img{
-width:100%;
-height:150px;
-object-fit:cover;
-}
+text-align:center;
 
-.food-info{
-padding:15px;
-}
-
-.price{
-color:#ff5e00;
-font-weight:600;
 }
 
 .add-btn{
-display:inline-block;
-margin-top:8px;
-padding:8px 15px;
-background:linear-gradient(45deg,#ff5e00,#ff8c00);
+
+margin-top:15px;
+
+padding:10px 20px;
+
+background:#ff5e00;
+
 color:white;
-text-decoration:none;
+
+border:none;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+/* CART ITEM */
+
+.cart-item{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(0,0,0,0.6);
+
+padding:12px;
+
 border-radius:6px;
+
+margin-bottom:12px;
+
+}
+
+.food-info{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.food-info img{
+
+width:60px;
+height:50px;
+object-fit:cover;
+border-radius:6px;
+
+}
+
+/* BILL */
+
+.bill-row{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:8px 0;
+
+}
+
+.total{
+
+font-weight:600;
+
+font-size:18px;
+
+margin-top:10px;
+
+}
+
+/* BUTTON */
+
+.place-btn{
+
+width:100%;
+
+padding:14px;
+
+background:linear-gradient(45deg,#ff5e00,#ff8c00);
+
+border:none;
+
+color:white;
+
+font-size:16px;
+
+border-radius:6px;
+
+margin-top:15px;
+
+cursor:pointer;
+
 }
 
 </style>
@@ -116,66 +253,174 @@ border-radius:6px;
 
 <body>
 
-<%
-Users user = (Users)session.getAttribute("us");
-String name = (user!=null) ? user.getName() : "Guest";
-%>
+<!-- NAVBAR -->
 
 <div class="navbar">
 
-<div class="logo">🍽 HomeKitchen</div>
+<div class="logo">HomeKitchen</div>
 
 <div class="nav-links">
-<a href="#">Home</a>
+
 <a href="FoodList">Menu</a>
+
 <a href="ViewCart">Cart</a>
-<a href="OrderHistory">Orders</a>
-<a href="LogoutServlet">Logout</a>
+
+<a href="Dashboard.jsp">Dashboard</a>
+
+</div>
+
+</div>
+
+<div class="checkout-container">
+
+<!-- LEFT SIDE -->
+
+<div class="left-section">
+
+<div class="address-box">
+
+<h2>Select delivery address</h2>
+
+<p>You have a saved address in this location</p>
+
+<div class="address-grid">
+
+<div class="address-card">
+
+<h3>🏠 Home</h3>
+
+<p>
+99/125-2 Professors Colony<br>
+Kadapa, Andhra Pradesh<br>
+516004
+</p>
+
+<p><b>48 mins</b></p>
+
+<button class="deliver-btn">DELIVER HERE</button>
+
+</div>
+
+<div class="add-address">
+
+<h3>Add New Address</h3>
+
+<p>Save a new delivery location</p>
+
+<button class="add-btn">ADD NEW</button>
+
 </div>
 
 </div>
 
-<div class="hero">
-<h1>Welcome to HomeKitchen</h1>
-<h2>Hello <%= name %> 👋</h2>
 </div>
 
-<div class="food-grid">
+<div class="address-box">
 
-<div class="food-card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<h2>Payment</h2>
+
+<p>Select payment method during checkout.</p>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE CART -->
+
+<div class="right-section">
+
+<h3>Your Cart</h3>
+
+<%
+
+List<Cart> cartItems = (List<Cart>)request.getAttribute("cartItems");
+
+double total = 0;
+
+if(cartItems!=null && !cartItems.isEmpty()){
+
+for(Cart c : cartItems){
+
+double price=c.getFood().getPrice();
+int qty=c.getQuantity();
+
+double sub = price*qty;
+
+total+=sub;
+
+%>
+
+<div class="cart-item">
+
 <div class="food-info">
-<h3>Chicken Burger</h3>
-<div class="price">₹199</div>
-<a href="customer/AddToCart?fid=1" class="add-btn">Add to Cart</a>
-</div>
+
+<img src="/Cloud_kitchen/<%= c.getFood().getImage_url() %>">
+
+<div>
+
+<b><%= c.getFood().getFood_name() %></b><br>
+
+<small>Price : ₹ <%= price %></small><br>
+
+<small>Qty : <%= qty %></small>
+
 </div>
 
-<div class="food-card">
-<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-<div class="food-info">
-<h3>Pizza</h3>
-<div class="price">₹299</div>
-<a href="customer/AddToCart?fid=2" class="add-btn">Add to Cart</a>
-</div>
 </div>
 
-<div class="food-card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246">
-<div class="food-info">
-<h3>Noodles</h3>
-<div class="price">₹179</div>
-<a href="customer/AddToCart?fid=3" class="add-btn">Add to Cart</a>
-</div>
+<div>
+
+₹ <%= sub %>
+
 </div>
 
-<div class="food-card">
-<img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d">
-<div class="food-info">
-<h3>French Fries</h3>
-<div class="price">₹149</div>
-<a href="customer/AddToCart?fid=4" class="add-btn">Add to Cart</a>
 </div>
+
+<%
+
+}
+
+}else{
+
+%>
+
+<p>Your cart is empty</p>
+
+<%
+
+}
+
+double delivery=40;
+
+double finalTotal=total+delivery;
+
+%>
+
+<hr>
+
+<div class="bill-row">
+<span>Item Total</span>
+<span>₹ <%= total %></span>
+</div>
+
+<div class="bill-row">
+<span>Delivery Fee</span>
+<span>₹ <%= delivery %></span>
+</div>
+
+<hr>
+
+<div class="bill-row total">
+<span>TO PAY</span>
+<span>₹ <%= finalTotal %></span>
+</div>
+
+<form action="PlaceOrder" method="post">
+
+<button class="place-btn">Place Order</button>
+
+</form>
+
 </div>
 
 </div>

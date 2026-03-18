@@ -1,12 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <title>Admin Dashboard</title>
 </head>
 <body>
+
+<h1>Admin Dashboard</h1>
+
+<hr>
+
+<a href="users">👥 View Users</a><br><br>
+<a href="orders">📦 View Orders</a><br><br>
+<a href="../auth/logout">🚪 Logout</a>
 
 </body>
 </html>

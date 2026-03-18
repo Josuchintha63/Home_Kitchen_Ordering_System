@@ -20,6 +20,8 @@ public class Food {
 	    this.image_url = image_url;
 	    this.status = status;
 	}
+	
+	
 
 
 	public Food() {

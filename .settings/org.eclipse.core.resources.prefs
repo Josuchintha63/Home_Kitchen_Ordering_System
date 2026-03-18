@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/admin/All-orders.jsp=UTF-8
+encoding//src/main/webapp/admin/All-users.jsp=UTF-8
+encoding//src/main/webapp/admin/Dashboard.jsp=UTF-8
 encoding//src/main/webapp/customer/Cart.jsp=UTF-8
 encoding//src/main/webapp/customer/Dashboard.jsp=UTF-8
 encoding//src/main/webapp/customer/Food-list.jsp=UTF-8

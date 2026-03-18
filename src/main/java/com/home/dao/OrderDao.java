@@ -14,6 +14,7 @@ public interface OrderDao {
 
 	 List<Order> getChefOrders(int chefId);
 
+	 List<Order> getAllOrders();
 
 	
 
